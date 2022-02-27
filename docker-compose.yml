@@ -4,7 +4,6 @@ services:
     build: app/
     volumes:
       - static:/usr/local/App42PaaS-Java-MySQL-Sample/target/
-      - static:/usr/local/App42PaaS-Java-MySQL-Sample/Config.properties
       
   tomcat:
     image: tomcat:9.0.0.M15-jre8-alpine
@@ -12,7 +11,6 @@ services:
       - "80:8080"
     volumes:
       - static:/usr/local/tomcat/webapps
-      - static:/usr/local/tomcat/ROOT/
   
   mysql_db:
     image: mysql:8
@@ -25,7 +23,7 @@ services:
       MYSQL_USER: acp4pogynvaeidfj
       MYSQL_PASSWORD: jc31d2qyy7h9jv5jn1u9uosjksxzaizw
       volumes:
-      - ./init.sql:/data/application/init.sql
+      - .db//init.sql:/data/application/init.sql
       
 volumes:
   static:
