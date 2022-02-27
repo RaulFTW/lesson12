@@ -23,7 +23,7 @@ services:
       MYSQL_USER: acp4pogynvaeidfj
       MYSQL_PASSWORD: jc31d2qyy7h9jv5jn1u9uosjksxzaizw
       volumes:
-      - .db//init.sql:/data/application/init.sql
+      - .db/init.sql:/data/application/init.sql
       
 volumes:
   static:
