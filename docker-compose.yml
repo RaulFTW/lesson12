@@ -4,19 +4,26 @@ services:
     build: app/
     volumes:
       - static:/usr/local/App42PaaS-Java-MySQL-Sample/target/
-
+      - static:/usr/local/App42PaaS-Java-MySQL-Sample/Config.properties
+      
   tomcat:
     image: tomcat:9.0.0.M15-jre8-alpine
     ports:
       - "80:8080"
     volumes:
       - static:/usr/local/tomcat/webapps
-
+      - static:/usr/local/tomcat/ROOT/
+  
   mysql_db:
     image: mysql:8
     restart: always
     ports:
-      - "3306:3306"
-
+      - "3306:8514"
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: dd
+      MYSQL_USER: acp4pogynvaeidfj
+      MYSQL_PASSWORD: jc31d2qyy7h9jv5jn1u9uosjksxzaizw
+      
 volumes:
   static:
